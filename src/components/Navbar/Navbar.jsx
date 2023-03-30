@@ -1,23 +1,30 @@
 import React from 'react';
 import s from './Navbar.module.css';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
+
+//gold highlight of selected link
+const SelectedLink = () => {
+    return (
+        select => select.isActive ? s.active : s.item
+    )
+}
 
 const Navbar = () => {
     return <nav className={s.nav}>
         <div className={s.item}>
-            <Link to='/profile'>Profile</Link>
+            <NavLink to='/profile' className={SelectedLink()}>Profile</NavLink>
         </div>
         <div className={`${s.item} ${s.active}`}>
-            <Link to='/dialogs'>Dialogs</Link>
+            <NavLink to='/dialogs' className={SelectedLink()}>Dialogs</NavLink>
         </div>
         <div className={s.item}>
-            <Link to='/news'>News</Link>
+            <NavLink to='/news' className={SelectedLink()}>News</NavLink>
         </div>
         <div className={s.item}>
-            <Link to='/music'>Music</Link>
+            <NavLink to='/music' className={SelectedLink()}>Music</NavLink>
         </div>
         <div className={s.item}>
-            <Link to='/settings'>Settings</Link>
+            <NavLink to='/settings' className={SelectedLink()}>Settings</NavLink>
         </div>
     </nav>
 }
