@@ -1,38 +1,40 @@
 import React from "react";
 import s from './Dialogs.module.css'
+import {NavLink} from "react-router-dom";
+
+const DialogItem = (props) => {
+    let path = "/dialogs/" + props.id;
+    return (
+        <div className={s.dialog + ' ' + s.active}>
+            <NavLink to={path}>{props.name}</NavLink>
+        </div>
+    )
+}
+
+const Message = (props) => {
+    return (
+        <div className="message">{props.message}</div>
+    )
+}
+
 
 const Dialogs = (props) => {
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
-                <div className={s.dialog + ' ' + s.active}>
-                    Dimych
-                </div>
-                <div className={s.dialog}>
-                    Andrey
-                </div>
-                <div className={s.dialog}>
-                    Sveta
-                </div>
-                <div className={s.dialog}>
-                    Sasha
-                </div>
-                <div className={s.dialog}>
-                    Viktor
-                </div>
-                <div className={s.dialog}>
-                    Valera
-                </div>
+                <DialogItem name="Amanda De Santa" id="1"/>
+                <DialogItem name="Jimmy De Santa" id="2"/>
+                <DialogItem name="Lamar Davis" id="3"/>
+                <DialogItem name="Trevor Philips" id="4"/>
+                <DialogItem name="Franklin Clinton" id="5"/>
+                <DialogItem name="Denise Clinton" id="6"/>
             </div>
-
             <div className={s.messages}>
-                <div className="message">Hi</div>
-                <div className="message">How is your day?</div>
-                <div className="message">Yooo!</div>
+                <Message message="Will you clean the juicer after you use it?"/>
+                <Message message="Will you clean the juicer after you use it?"/>
+                <Message message="Will you clean the juicer after you use it?"/>
             </div>
-
         </div>
-
     )
 }
 
