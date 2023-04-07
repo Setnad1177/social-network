@@ -8,6 +8,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
+import {updateNewPostText} from "./selfRedux/state";
 
 const App = (props) => {
     return (<BrowserRouter>
@@ -18,8 +19,10 @@ const App = (props) => {
                 <Routes>
                     <Route path='/dialogs/*' element={<Dialogs state={props.state.dialogsPage}/>}/>
                     <Route path='/profile' element={<Profile
-                        state={props.state.profilePage}
-                        addPost={props.addPost}/>}/>
+                        profilePage={props.state.profilePage}
+                        addPost={props.addPost}
+                        updateNewPostText={props.updateNewPostText}
+                    />}/>
                     <Route path='/news' element={<News/>}/>
                     <Route path='/music' element={<Music/>}/>
                     <Route path='/settings' element={<Settings/>}/>
