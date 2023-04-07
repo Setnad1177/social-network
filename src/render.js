@@ -7,9 +7,8 @@ import {BrowserRouter} from "react-router-dom";
 
 
 export let rerenderEntireTree = (state) => {
-ReactDOM.render(
-
-        <App state={state} addPost={addPost} updateNewPostText={updateNewPostText} />
-, document.getElementById('root'));
+    ReactDOM.render(
+        <App state={state} addPost={addPost} updateNewPostText={updateNewPostText}/>
+        , document.getElementById('root'));
 }
 
