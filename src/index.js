@@ -1,24 +1,21 @@
 import React from 'react';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import state, {subscribe} from "./selfRedux/state";
+import store from "./selfRedux/state";
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {addPost, updateNewPostText} from './selfRedux/state';
-
-
 
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
-        <App state={state} addPost={addPost} updateNewPostText={updateNewPostText}/>
+        <App state={store.getState()} addPost={store.addPost.bind(store)}
+             updateNewPostText={store.updateNewPostText.bind(store)}/>
         , document.getElementById('root'));
 }
 
+rerenderEntireTree(store.getState());
 
-rerenderEntireTree(state);
-
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree);
 
 
 
